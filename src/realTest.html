@@ -4,6 +4,7 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik One:400">    
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -16,14 +17,68 @@
         margin: 0;
         padding: 0;
       }
+      #ratingLabel{
+        font-family: "Rubik One";
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        color: rgb(158, 158, 158);
+        vertical-align: middle;
+        justify-content: flex-start;
+        width: 88px;
+        transform: translate(400px, 0px);
+        line-height: 23.4375px;
+        height: 19px;
+        left: 446px;
+        top: 33px;
+
+      }
+      #input {
+
+      }
+      #button {
+        font-family: "Rubik One";    
+        font-size: 25px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        justify-content: flex-start;
+        width: 125px;
+        transform: translate(400px, 0px);
+        background: rgb(129, 217, 255);
+        top: 483px; 
+        color: rgb(255, 255, 255);
+        height: 40px;
+        /*color: rgb(158, 158, 158);
+        justify-content: flex-start;
+        width: 88px;
+        transform: translate(0px, 0px);
+        line-height: 23.4375px;
+        height: 19px;
+        left: 446px;
+        top: 33px;*/
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: #F1F1F1;
+      }
     </style>
   </head>
   <body>
+    <div>
+      <input id="ratingInput">
+      <label id="ratingLabel">
+        RATING
+      </label>
+    </div>
     <div id="map"></div>
     <div>
     <input id="input">
     <button id="button">
-      submit
+      SUBMIT
     </button>
     </div>
    
@@ -41,9 +96,13 @@ var markers = [];
 var infos = [];
 var input = document.getElementById("input");
 var button = document.getElementById("button");
+var rating = document.getElementById("ratingInput");
+
 button.addEventListener("click", function(){
+
   var newWindow = new google.maps.InfoWindow({content: input.value});
-})
+});
+
 
   var myLatlng = {lat: -25.363, lng: 131.044};
 
