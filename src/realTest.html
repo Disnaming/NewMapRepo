@@ -165,10 +165,10 @@ var rating = document.getElementById("ratingInput");
 button.addEventListener("click", function(){
 
   var newWindow = new google.maps.InfoWindow({
-    content: input.value
+    content: "Description: " + input.value + "  Rating: " + rating.value
   });
   currMarkerWrittenTo = true;
-  newWindow.open(markers[markers.length - 1]);
+  newWindow.setPosition(markers[markers.length - 1].getPosition);
   infos.push(newWindow);
 
 
@@ -196,14 +196,6 @@ button.addEventListener("click", function(){
   });
 
   markers.push(marker);
-
-  map.addListener('center_changed', function() {
-    // 3 seconds after the center of the map has changed, pan back to the
-    // marker.
-    window.setTimeout(function() {
-      map.panTo(marker.getPosition());
-    }, 3000);
-  });
 
   markers[0].addListener('click', function() {
     infowindow.open(map, marker);
