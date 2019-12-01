@@ -47,6 +47,8 @@
     </style>
   </head>
   <body>
+    <div id="location"></div>
+    <div id="rating"></div>
     <div id="map"></div>
     <div>
     <input id="input">
@@ -66,9 +68,13 @@ function initMap() {
 var markers = [];
 var input = document.getElementById("input");
 var button = document.getElementById("button");
+var location = document.getElementById("location");
+var rating = document.getElementById("location");
+var location = document.getElementById("location");
+
 button.addEventListener("click", function(){
   alert(input.value);
-})
+});
 
   var myLatlng = {lat: -25.363, lng: 131.044};
 
