@@ -177,12 +177,12 @@ button.addEventListener("click", function(){
     content: "Description: " + input.value + "  Rating: " + rating.value
   });
   currMarkerWrittenTo = true;
-  newWindow.setPosition(markers[markers.length - 1].getPosition);
+  newWindow.open(map, markers[markers.length -1]);
   infos.push(newWindow);
 
 
   markers[markers.length - 1].addListener('click', function() {
-    infos[infos.length - 1].open(map, marker);
+    infos[infos.length - 1].open(map, markers[markers.length -1]);
   });
 });
 
