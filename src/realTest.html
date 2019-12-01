@@ -10,6 +10,54 @@
        * element that contains the map. */
       #map {
         height: 80%;
+        margin-top: 50px;
+      }
+
+      #fromInput {
+        font-family: "Rubik One";
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        color: rgb(158, 158, 158);
+        vertical-align: middle;
+        justify-content: flex-start;
+        width: 88px;
+        transform: translate(400px, 0px);
+        line-height: 23.4375px;
+        height: 19px;
+        left: 446px;
+        top: 33px;
+      }
+
+      #toInput {
+        font-family: "Rubik One";
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        color: rgb(158, 158, 158);
+        vertical-align: middle;
+        justify-content: flex-start;
+        width: 88px;
+        transform: translate(400px, 0px);
+        line-height: 23.4375px;
+        height: 19px;
+        left: 446px;
+        top: 33px;
+      }
+
+      #routeButton {
+        font-family: "Rubik One";    
+        font-size: 25px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        justify-content: flex-start;
+        width: 125px;
+        transform: translate(400px, 0px);
+        background: rgb(129, 217, 255);
+        top: 483px; 
+        color: rgb(255, 255, 255);
+        height: 70px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -63,7 +111,7 @@
         height: 100%;
         margin: 0;
         padding: 0;
-        background: #F1F1F1;
+        background: #C3F1FF;
       }
     </style>
   </head>
@@ -73,7 +121,23 @@
       <label id="ratingLabel">
         RATING
       </label>
+
+      <input>
+      <label id="fromInput">
+        FROM
+      </label>
+
+      <input>
+      <label id="toInput">
+        TO
+      </label>
+      <button id="routeButton">
+        FIND ROUTE
+      </button>
     </div>
+
+
+
     <div id="map"></div>
     <div>
     <input id="input">
