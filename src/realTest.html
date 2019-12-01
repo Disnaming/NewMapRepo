@@ -35,11 +35,14 @@ function initMap() {
 
     }
   }
+  var currMarkerWrittenTo = false;
+  var currMarker;
 var markers = [];
+var infos = [];
 var input = document.getElementById("input");
 var button = document.getElementById("button");
 button.addEventListener("click", function(){
-  alert(input.value);
+  var newWindow = new google.maps.InfoWindow({content: input.value});
 })
 
   var myLatlng = {lat: -25.363, lng: 131.044};
@@ -74,16 +77,21 @@ button.addEventListener("click", function(){
   });
 
 
-
-  marker.addListener('dblclick', function(event) {
-   // var tempLatlng = {lat : event.latLng.lat(): lng: event.latLng.lng()}
-
- marker.push(new google.maps.Marker({
-    position: myLatlng,
+  map.addListener('click', function(event) {
+    if (currMarkerWrittenTo == false && markers.length > 1){
+      currMarker.setMap(null);
+    markers.pop();
+  }
+   var tempLatlng = {lat : event.latLng.lat(), lng: event.latLng.lng()}
+   var newMarker = new google.maps.Marker({
+    position: tempLatlng,
     map: map,
-    title: 'Click to zoom'
-  }))
+    title: 'NEW!'
+  });
 
+ markers.push(newMarker);
+currMarker = newMarker;
+currMarkerWrittenTo = false;
   });
 }
 
