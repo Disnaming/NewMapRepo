@@ -8,7 +8,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 80%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -20,9 +20,28 @@
   </head>
   <body>
     <div id="map"></div>
+    <div>
+    <input id="input">
+    <button id="button">
+      submit
+    </button>
+    </div>
+   
     <script>
       var map;
 function initMap() {
+  class Problem{
+    constructor(description){
+
+    }
+  }
+var markers = [];
+var input = document.getElementById("input");
+var button = document.getElementById("button");
+button.addEventListener("click", function(){
+  alert(input.value);
+})
+
   var myLatlng = {lat: -25.363, lng: 131.044};
 
    var infowindow = new google.maps.InfoWindow({
@@ -40,6 +59,8 @@ function initMap() {
     title: 'Click to zoom'
   });
 
+  markers.push(marker);
+
   map.addListener('center_changed', function() {
     // 3 seconds after the center of the map has changed, pan back to the
     // marker.
@@ -48,17 +69,25 @@ function initMap() {
     }, 3000);
   });
 
-  marker.addListener('click', function() {
+  markers[0].addListener('click', function() {
     infowindow.open(map, marker);
   });
 
 
 
-  marker.addListener('dblclick', function() {
-    map.setZoom(8);
-    map.setCenter(marker.getPosition());
+  marker.addListener('dblclick', function(event) {
+   // var tempLatlng = {lat : event.latLng.lat(): lng: event.latLng.lng()}
+
+ marker.push(new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title: 'Click to zoom'
+  }))
+
   });
 }
+
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBpoXAPNzlNiQym3GR4VJqd9FkQ7V9rtA&callback=initMap"
     async defer></script>
