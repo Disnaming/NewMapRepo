@@ -100,7 +100,17 @@ var rating = document.getElementById("ratingInput");
 
 button.addEventListener("click", function(){
 
-  var newWindow = new google.maps.InfoWindow({content: input.value});
+  var newWindow = new google.maps.InfoWindow({
+    content: input.value
+  });
+  currMarkerWrittenTo = true;
+  newWindow.open(markers[markers.length - 1]);
+  infos.push(newWindow);
+
+
+  markers[markers.length - 1].addListener('click', function() {
+    infos[infos.length - 1].open(map, marker);
+  });
 });
 
 
